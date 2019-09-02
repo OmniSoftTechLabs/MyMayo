@@ -1,0 +1,92 @@
+@media screen and (max-width: 1299px) {
+  .banner .banner-slider .single-item .item .banner-txt strong { font-size: 60px; line-height: 60px;}
+  .banner .banner-slider .single-item .item .banner-txt .banner-search { margin-top: 30px;}
+  .promotion-section .ps-box .container { width: 100%;}
+}
+@media screen and (max-width: 1199px) {
+  .pt-70 { padding-top: 40px;}
+  .pb-80 { padding-bottom: 40px;}
+  .p-t70-b80 { padding-top: 40px; padding-bottom: 40px;}
+  .testimonial .testimonial-item .item { padding: 40px 0 40px;}
+  footer .footer-menu { padding: 40px 0 40px;}
+  footer .footer-menu .f-about .f-social li { margin-right: 8px;}
+  .join-form { padding-left: 30px;}
+  .join-form .jf-form { border-radius: 0 30px 0 30px; padding: 35px;}
+  .section-heading h1 { line-height: 40px; font-size: 40px;}
+}
+@media screen and (max-width: 991px) {
+  .ptb-70 { padding: 40px 0px;}
+  header { padding: 10px 15px;}
+  header .navbar-default .navbar-collapse .navbar-nav > li a { margin-right: 20px;}
+  header .navbar-default .navbar-collapse .navbar-nav > .member-btn { padding: 12px 15px 7px;}
+  .flag-menu { margin-left: 20px;}
+  .banner .banner-slider .single-item .item .banner-txt p { font-size: 25px; margin-bottom: 0;}
+  .banner .banner-slider .single-item .item .banner-txt strong { font-size: 50px; line-height: 50px;}
+  .banner .banner-slider .single-item .item .banner-txt .banner-search { margin-top: 20px;}
+  .banner .banner-slider .single-item .item .banner-txt .banner-search select { width: 256px;}
+  .banner .banner-slider .single-item .item .banner-txt .banner-search input[type="submit"], .banner .banner-slider .single-item .item .banner-txt .banner-search input[type="button"], .banner .banner-slider .single-item .item .banner-txt .banner-search button {  width: calc(100% - 256px); padding: 13px 0;}
+  .feature-box { margin-bottom: 40px;}
+  .feature-box > img { max-width: 150px;}
+  .section-heading h1 { font-size: 35px;}
+  .join-form { padding-left: 70px;}
+  .testimonial .testimonial-item .item .ts-photo img { width: 200px;}
+  footer .footer-menu .f-about { text-align: center; margin-bottom: 40px;}
+  footer .footer-menu .f-about > img { margin: 0 auto 30px;}
+}
+@media screen and (min-width: 768px) {
+  /* .navbar-brand { display: none;} */
+  .service-section div[class*="col-md-"], .col-md-768 div[class*="col-md-"], .col-md-768 div[class*="col-sm-"] {
+    display: inline-block; vertical-align: top; float: none; margin-right: -4px;
+  }
+  header .header-menu .navbar-default .container-fluid { padding-right: 0px; padding-left: 0px;}
+  header .header-menu .navbar-default .navbar-collapse { padding-right: 0px; padding-left: 0px; }
+  header .header-menu .navbar-default .navbar-collapse .navbar-nav { float: right;}
+  .dn-768 { display: none !important;}
+  .banner .banner-social { position: absolute; right: -135px; bottom: 146px; transform: rotate(-90deg);}
+}
+@media screen and (max-width: 767px) {
+  .dn-767 { display: none !important;}
+  footer .footer-menu .f-menu strong { font-size: 20px; padding-bottom: 10px;}
+  footer .footer-menu .f-menu ul { padding-top: 0px; margin-bottom: 20px;}
+  footer .footer-menu { padding: 20px 0 0px;}
+  footer .footer-copy { font-size: 14px; padding: 15px 0;}
+  header .navbar-default .navbar-collapse .navbar-nav > li { float: left; display: block; width: 100%;}
+  header .navbar-default .navbar-collapse .navbar-nav > li a { padding-left: 15px;}
+  header .navbar-default .navbar-collapse .navbar-nav > .member-btn { display: inline-block; margin-top: 20px; text-align: center; width: auto;}
+  header .navbar-default .navbar-collapse .navbar-nav > .member-btn a {display: inline-flex; padding-left: 5px; padding-right: 5px;}
+  header .navbar-default .navbar-collapse .navbar-nav { margin-left: 0; margin-right: 0; float: left;}
+  header .navbar-default .navbar-collapse { margin-top: 10px;}
+  header .navbar-default .navbar-header .navbar-toggle {margin-top: 18px; float: left;}
+  .banner .banner-slider { margin-right: 10px;}
+  .banner .banner-social { position: absolute; right: 0px; bottom: 146px;}
+  .banner .banner-slider .single-item .item .banner-txt p { font-size: 18px;}
+  .banner .banner-slider .single-item .item .banner-txt strong { font-size: 22px; line-height: 21px;}
+  .banner .banner-slider .single-item .item .banner-txt .banner-search { margin-top: 10px; width: 280px;}
+  .banner .banner-slider .single-item .item .banner-txt .banner-search select { width: 161px; font-size: 18px; padding: 5px 15px 5px 25px; font-weight: 700;}
+  .banner .banner-slider .single-item .item .banner-txt .banner-search input[type="submit"],
+  .banner .banner-slider .single-item .item .banner-txt .banner-search input[type="button"],
+  .banner .banner-slider .single-item .item .banner-txt .banner-search button { width: calc(100% - 160px); font-size: 14px; font-weight: 700;}
+  .banner .banner-slider .single-item .item::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.3); z-index: 1;}
+  .banner .banner-slider .single-item .item .banner-txt, .banner .banner-slider .single-item .item img { z-index: 2;}
+  .yellow-bar-top { border-top: 50px solid #ffc001;}
+  .banner .banner-social { right: 0px; bottom: -42px; z-index: 1; font-size: 18px;}
+  .banner .banner-social li { margin-right: 10px;}
+  .promotion-section .ps-box { margin-left: 10px;}
+  .join-form {padding-left: 0;}
+  .join-form .jf-form { border-radius: 0 10px 0 10px; padding: 10px;}
+  .join-form .jf-form input[type="text"], .join-form .jf-form select { margin-bottom: 10px; padding: 10px 15px; font-size: 18px;}
+  .join-form .jf-form input[type="submit"] { padding: 11px 0px; font-size: 16px; text-align: center;}
+  .section-heading strong {font-size: 20px;}
+  .section-heading h1 { font-size: 25px;}
+  .testimonial .testimonial-item .item { padding: 30px 0 10px;}
+  .testimonial .testimonial-item .item .ts-photo img { width: 100px;}
+  .testimonial .testimonial-item .item .quote { margin: 20px auto 10px; width: 40px;}
+  .testimonial .testimonial-item .item .ts-text { line-height: 23px; font-size: 14px;}
+  .ts-box { text-align: center;}
+}
+@media screen and (max-width: 600px) {
+}
+@media screen and (max-width: 500px) {
+}
+@media screen and (max-width: 400px) {
+}

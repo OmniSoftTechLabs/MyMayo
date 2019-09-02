@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'blacker';
+    src: url('blacker-display-light-trial.woff2') format('woff2'),
+         url('blacker-display-light-trial.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'gilroy';
+    src: url('gilroy-extrabold.woff2') format('woff2'),
+         url('gilroy-extrabold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Comic Sans MS';
+    src: url('ComicSansMS.woff2') format('woff2'),
+        url('ComicSansMS.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
