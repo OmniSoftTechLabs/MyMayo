@@ -192,15 +192,16 @@
                 </div>
                 If you’re Teacher<span>Join the team</span>
               </div>
+
               <div class="jf-form">
-                <input type="text" placeholder="Name">
-                <input type="text" placeholder="Email">
-                <select>
-                  <option value="Choose Qualification">Choose Qualification</option>
+                <input type="text" placeholder="Name" name="firstName" [(ngModel)]="firstName">
+                <input type="text" placeholder="Email" name="userName" [(ngModel)]="userName">
+                <select name="qualification" [(ngModel)]="qualification">
+                  <option value="0">Choose Qualification</option>
                   <option value="BCA">BCA</option>
                   <option value="MCA">MCA</option>
                 </select>
-                <input type="submit" value="teacher Registration">
+                <input type="submit" value="teacher Registration" (click)="onSubmit()">
               </div>
             </div>
           </div>
