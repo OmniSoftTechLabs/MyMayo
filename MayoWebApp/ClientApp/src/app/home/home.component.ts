@@ -1,5 +1,4 @@
 import { Component, Inject } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { userMaster } from '../models/userModel';
 import { UserRoleService } from '../Services/user-role.service';
 

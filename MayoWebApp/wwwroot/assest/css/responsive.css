@@ -13,6 +13,9 @@
   .join-form { padding-left: 30px;}
   .join-form .jf-form { border-radius: 0 30px 0 30px; padding: 35px;}
   .section-heading h1 { line-height: 40px; font-size: 40px;}
+  .course-section .course-list .cl-img { width: 300px;}
+  .course-section .course-list .cl-detail { padding: 20px 20px 20px 330px;}
+  .course-section .course-list .cl-detail .cl-heading .cl-by { float: none;}
 }
 @media screen and (max-width: 991px) {
   .ptb-70 { padding: 40px 0px;}
@@ -32,6 +35,9 @@
   .testimonial .testimonial-item .item .ts-photo img { width: 200px;}
   footer .footer-menu .f-about { text-align: center; margin-bottom: 40px;}
   footer .footer-menu .f-about > img { margin: 0 auto 30px;}
+  .sidebar-box { width: calc(33.33% - 20px); float: left; margin: 0 10px 30px 10px;}
+  .contact-section .contact-info { margin-bottom: 0;}
+  .contact-section .c-social { margin-bottom: 50px;}
 }
 @media screen and (min-width: 768px) {
   /* .navbar-brand { display: none;} */
@@ -83,6 +89,14 @@
   .testimonial .testimonial-item .item .quote { margin: 20px auto 10px; width: 40px;}
   .testimonial .testimonial-item .item .ts-text { line-height: 23px; font-size: 14px;}
   .ts-box { text-align: center;}
+  .sidebar-box { width: 100%; float: none; margin: 0 0px 30px 0px;}
+  .course-section .course-list .cl-img { width: 100%; max-width: 280px; float: none;}
+  .course-section .course-list .cl-detail { padding: 10px;}
+  .inner-banner { border-right: 20px solid #ffc001; min-height: 100px;}
+  .inner-banner .ib-heading { font-size: 30px;padding: 50px 0 30px;}
+  .cta-one .yellow-btn { display: block; margin: 0 auto 20px; max-width: 280px; width: 100%; }
+  .contact-section .contact-form { padding: 15px;}
+  .map iframe { height: 250px;}
 }
 @media screen and (max-width: 600px) {
 }

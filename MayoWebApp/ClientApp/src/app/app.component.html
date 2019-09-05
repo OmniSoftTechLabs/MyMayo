@@ -4,7 +4,119 @@
       <app-nav-menu></app-nav-menu>
     </div>-->
     <div class='col-sm-12 body-content'>
+      <header>
+        <div class="dropdown flag-menu-mobile dn-768">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <img src="assest/img/flag.jpg" alt="" />
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><img src="assest/img/flag.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="assest/img/flag.jpg" alt="" /></a></li>
+          </ul>
+        </div>
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand h-logo" href="#"><img src="assest/img/logo.png" alt="" /></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a [routerLink]='["/home"]'>Home</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Mayo <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a [routerLink]='["/contactus"]'>Contact us</a></li>
+                  </ul>
+                </li>
+                <li><a [routerLink]='["/courselist"]'>Courses</a></li>
+                <li class="member-btn">
+                  <a href="login.html">Login</a> /
+                  <a href="register.html">Signup</a>
+                </li>
+                <li class="dropdown flag-menu dn-767">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img src="assest/img/flag.jpg" alt="" />
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#"><img src="assest/img/flag.jpg" alt="" /></a></li>
+                    <li><a href="#"><img src="assest/img/flag.jpg" alt="" /></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+      </header>
+
       <router-outlet></router-outlet>
+
+      <footer>
+        <div class="footer-menu">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3 col-sm-12 col-xs-12">
+                <div class="f-about">
+                  <img src="assest/img/logo.png" alt="" />
+                  <ul class="f-social">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-12">
+                <div class="f-menu">
+                  <strong>Getting Started</strong>
+                  <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Why Choose Us</a></li>
+                    <li><a href="">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-12">
+                <div class="f-menu">
+                  <strong>Courses</strong>
+                  <ul>
+                    <li><a href="">Course One</a></li>
+                    <li><a href="">Course Two</a></li>
+                    <li><a href="">Course Three</a></li>
+                    <li><a href="">Course Four</a></li>
+                    <li><a href="">Course Five</a></li>
+                    <li><a href="">Course Six</a></li>
+                    <li class="simple-link"><a href="">View All</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-12">
+                <div class="f-menu">
+                  <strong>Policies</strong>
+                  <ul>
+                    <li><a href="">Term of Services</a></li>
+                    <li><a href="">Privacy Policy</a></li>
+                    <li><a href="">FAQ</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copy">
+          Copyright © 2019-2020 <span>Mayo</span>. All rights reserved.
+        </div>
+      </footer>
     </div>
   </div>
 </div>
