@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { userMaster } from '../models/userModel';
+import { roleModel } from '../models/roleModel';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class UserRoleService {
   }
 
   addUserMaster(userModel: userMaster) {
-    return this.http.post<userMaster>(this.baseUrl + 'api/UserMasters', userModel);
+    return this.http.post<userMaster>(this.baseUrl + 'api/UserMasters/AddUserMaster', userModel);
 
     //return this.http.post<userMaster>(this.baseUrl + 'api/UserMasters', userModel).subscribe(result => {
     //  this.userM = result;
@@ -24,14 +25,27 @@ export class UserRoleService {
   }
 
   addTeacherUser(userModel: userMaster) {
-    return this.http.post<userMaster>(this.baseUrl + 'api/UserMasters/AddTeacherUserMaster', userModel);
+    return this.http.post<userMaster>(this.baseUrl + 'api/UserMasters/TeacherRegistration', userModel);
+  }
+
+  addAdminUser(userModel: userMaster) {
+    return this.http.post<userMaster>(this.baseUrl + 'api/UserMasters/CreateAdminUser', userModel);
+  }
+
+  addStudentUser(userModel: userMaster) {
+    return this.http.post<userMaster>(this.baseUrl + 'api/UserMasters/CreateStudentUser', userModel);
   }
 
   getAllUser() {
     return this.http.get<userMaster[]>(this.baseUrl + 'api/UserMasters/GetUserMaster');
-
-    //  .subscribe(result => {
-    //  this.userList = result;
-    //}, error => console.error(error));
   }
+
+  loadRolesList() {
+    return this.http.get<roleModel[]>(this.baseUrl + 'api/RoleMasters/GetRoleMaster');
+  }
+
+  //  .subscribe(result => {
+  //  this.userList = result;
+  //}, error => console.error(error));
+
 }

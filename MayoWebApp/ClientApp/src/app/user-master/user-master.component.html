@@ -1,0 +1,119 @@
+<div class="card">
+  <div class="card-header"><h4>{{formTitle}}</h4> </div>
+  <div class="card-body">
+    <div class="alert alert-danger" id="error-alert" role="alert" *ngIf="IsError">
+      <strong>Error!</strong> {{errorMsg}}
+    </div>
+    <div class="alert alert-success" id="success-alert" role="alert" *ngIf="IsSucess">
+      <button type="button" class="close" aria-label="Close" (click)="closeAlert()"><span aria-hidden="true">&times;</span></button>
+      <strong>Success!</strong> User Saved successfully.
+    </div>
+
+    <form #userAdd="ngForm" (ngSubmit)="onSaveUser()" novalidate>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          First Name<strong class="text-danger"> *</strong>
+          <input type="text" required #firstName="ngModel" name="firstName" pattern="^[a-zA-Z'-]+$" [class.is-invalid]="firstName.invalid && firstName.touched || firstName.errors?.pattern"
+                 class="form-control" [(ngModel)]="userModel.firstName" placeholder="First Name" maxlength="50" />
+          <small class="text-danger" *ngIf="firstName.errors?.required && firstName.touched">* First Name is required</small>
+          <small class="text-danger" *ngIf="firstName.errors?.pattern">* First Name is invalid</small>
+        </div>
+
+        <div class="form-group col-md-3">
+          Last Name<strong class="text-danger"> *</strong>
+          <input type="text" required #lastName="ngModel" name="lastName" pattern="^[a-zA-Z'-]+$" [class.is-invalid]="lastName.invalid && lastName.touched || lastName.errors?.pattern"
+                 class="form-control" [(ngModel)]="userModel.lastName" placeholder="Last Name" maxlength="50" />
+          <small class="text-danger" *ngIf="lastName.errors?.required && lastName.touched">* Last Name is required</small>
+          <small class="text-danger" *ngIf="lastName.errors?.pattern">* Last Name is invalid</small>
+        </div>
+
+        <div class="form-group col-md-3">
+          Qualification<strong class="text-danger"> *</strong>
+          <select class="form-control" #qualification="ngModel" [(ngModel)]="userModel.qualification" name="qualification" [class.is-invalid]="qualification.invalid && qualification.touched" required>
+            <option value="">--Select--</option>
+            <option value="BCA">BCA</option>
+            <option value="MCA">MCA</option>
+            <option value="BSc IT">BSc IT</option>
+            <!--<option *ngFor="let role of roleList" value="{{role.roleId}}"> {{role.roleName}}</option>-->
+          </select>
+
+          <!--          <small class="text-danger" [class.d-none]="qualification.valid || qualification.untouched">* Qualification is required</small>-->
+          <small class="text-danger" *ngIf="userModel.qualification == '' && qualification.touched">* Qualification is required</small>
+          <!--<input type="text" #phoneNumber="ngModel" name="phoneNumber" pattern="^0[12378]{1}[0-9]{9}" [class.is-invalid]="phoneNumber.invalid && phoneNumber.touched || phoneNumber.errors?.pattern"
+          class="form-control" [(ngModel)]="userModel.phoneNumber" placeholder="Phone Number" maxlength="11" />-->
+          <!--<small class="text-danger" *ngIf="phoneNumber.errors?.pattern">* Phone number is invalid</small>-->
+          <!--<small class="text-danger" [class.d-none]="phoneNumber.valid || phoneNumber.untouched">* Phone Number is required</small>-->
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          Email<strong class="text-danger"> *</strong>
+          <input type="text" required pattern="[a-zA-Z0-9._-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" #email="ngModel" name="email"
+                 [class.is-invalid]="email.invalid && email.touched" maxlength="100"
+                 class="form-control" [(ngModel)]="userModel.email" placeholder="Email" />
+          <small class="text-danger" *ngIf="email.errors?.required && email.touched">* Email is required</small>
+          <small class="text-danger" *ngIf="email.errors?.pattern">* Email is invalid</small>
+        </div>
+
+        <div class="form-group col-md-3">
+          User Name
+          <input type="text" required #userName="ngModel" name="userName" [class.is-invalid]="userName.invalid && userName.touched"
+                 class="form-control" [(ngModel)]="userModel.userName" placeholder="User Name" disabled value="{{userModel.email}}" />
+          <small class="text-danger" *ngIf="userName.invalid && userName.touched">* User Name is required</small>
+        </div>
+
+        <!--<div class="form-group col-md-3">
+          Manager
+          <select class="form-control" #managerEmpId="ngModel" [(ngModel)]="empModel.managerEmpId" name="managerEmpId" [class.is-invalid]="managerEmpId.invalid && managerEmpId.touched">
+            <option value="0">--Select--</option>
+            <option *ngFor="let mngr of mngrList" value="{{mngr.id}}"> {{mngr.firstName}} {{mngr.lastName}}</option>
+          </select>
+          <small class="text-danger" [class.d-none]="managerEmpId.valid || managerEmpId.untouched">* Manager is required</small>
+        </div>-->
+
+        <div class="form-group col-md-3">
+          Roles<strong class="text-danger"> *</strong>
+
+          <select class="form-control" #roleId="ngModel" [(ngModel)]="userModel.roleId" name="roleId" [class.is-invalid]="roleId.invalid && roleId.touched">
+            <option value="0">--Select--</option>
+            <option *ngFor="let role of roleList" value="{{role.roleId}}"> {{role.roleName}}</option>
+          </select>
+          <small class="text-danger" *ngIf="roleId.touched && userModel.roleId == 0">* Role is required</small>
+        </div>
+
+      </div>
+
+      <div class="form-row">
+
+        <!--<div class="form-group col-md-3">
+          Cost Centre<strong class="text-danger"> *</strong>
+          <select class="form-control" #costCentreId="ngModel" [(ngModel)]="empModel.costCentreId" name="costCentreId" required [class.is-invalid]="costCentreId.invalid && costCentreId.touched">
+            <option *ngFor="let ccentre of costCentres" value="{{ccentre.id}}"> {{ccentre.code}}-{{ccentre.name}} </option>
+          </select>
+          <small class="text-danger" [class.d-none]="costCentreId.valid || costCentreId.untouched">* Cost Centre is required</small>
+        </div>-->
+
+        <div class="form-group col-md-3">
+          Status
+          <!--<select class="form-control" #status="ngModel" [(ngModel)]="userModel.status" name="status" [disabled]="userModel.status == 'Pending'" [class.is-invalid]="status.invalid && status.touched">
+            <option *ngFor="let objStatus of statusList" value="{{objStatus.value}}" [disabled]="objStatus.value == 'Pending'"> {{objStatus.value}}</option>
+          </select>-->
+          <input class="form-control" required type="checkbox" #status="ngModel" name="status" [(ngModel)]="userModel.status" style="width:30px;"
+                 [class.is-invalid]="status.invalid && status.touched" />
+          <small class="text-danger" *ngIf="status.invalid && status.touched">* Status is required</small>
+        </div>
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group col-md-3">
+          <button class="btn btn-primary" [disabled]="userAdd.form.invalid" type="submit" style="width:100px;">Save</button>
+          &nbsp; &nbsp;
+          <button class="btn btn-default" style="width:100px;" type="reset" [routerLink]="['/general/dashboard/userlist']">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+

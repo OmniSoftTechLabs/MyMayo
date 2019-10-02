@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CourseListComponent } from './course-list/course-list.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { UserMasterComponent } from './user-master/user-master.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     CourseListComponent,
     CourseDetailComponent,
     ContactUsComponent,
+    UserMasterComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -34,6 +36,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
       { path: 'courselist', component: CourseListComponent },
       { path: 'coursedetail', component: CourseDetailComponent },
       { path: 'contactus', component: ContactUsComponent },
+      { path: 'userdetail', component: UserMasterComponent },
 
       //{ path: 'counter', component: CounterComponent },
       //{ path: 'fetch-data', component: FetchDataComponent },

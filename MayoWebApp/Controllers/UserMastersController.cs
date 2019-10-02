@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static MayoWebApp.GenericClasses.Enums;
 
 namespace MayoWebApp.Controllers
 {
@@ -19,7 +20,7 @@ namespace MayoWebApp.Controllers
             _context = context;
         }
 
-        // GET: api/UserMasters
+        // GET: api/UserMasters/GetUserMaster
         [HttpGet("[action]")]
         public async Task<ActionResult<IEnumerable<UserMaster>>> GetUserMaster()
         {
@@ -71,8 +72,8 @@ namespace MayoWebApp.Controllers
         }
 
         // POST: api/UserMasters
-        [HttpPost]
-        public async Task<ActionResult<UserMaster>> PostUserMaster(UserMaster userMaster)
+        [HttpPost("[action]")]
+        public async Task<ActionResult<UserMaster>> AddUserMaster(UserMaster userMaster)
         {
             if (!ModelState.IsValid)
             {
@@ -87,20 +88,55 @@ namespace MayoWebApp.Controllers
 
         // POST: api/UserMasters/AddTeacherUserMaster
         [HttpPost("[action]")]
-        public async Task<ActionResult<UserMaster>> AddTeacherUserMaster(UserMaster userMaster)
+        public async Task<ActionResult<UserMaster>> TeacherRegistration(UserMaster userMaster)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            userMaster.RoleId = _context.RoleMaster.FirstOrDefault(p => p.RoleName == "Teacher").RoleId;
+            userMaster.RoleId = _context.RoleMaster.FirstOrDefault(p => p.RoleName == RoleEnums.Teacher.ToString()).RoleId;
 
             _context.UserMaster.Add(userMaster);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetUserMaster", new { id = userMaster.UserId }, userMaster);
         }
+
+        // POST: api/UserMasters/CreateAdminUser
+        [HttpPost("[action]")]
+        public async Task<ActionResult<UserMaster>> CreateAdminUser(UserMaster userMaster)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            userMaster.RoleId = _context.RoleMaster.FirstOrDefault(p => p.RoleName == RoleEnums.Administrator.ToString()).RoleId;
+
+            _context.UserMaster.Add(userMaster);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetUserMaster", new { id = userMaster.UserId }, userMaster);
+        }
+
+        // POST: api/UserMasters/CreateStudentUser
+        [HttpPost("[action]")]
+        public async Task<ActionResult<UserMaster>> CreateStudentUser(UserMaster userMaster)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            userMaster.RoleId = _context.RoleMaster.FirstOrDefault(p => p.RoleName == RoleEnums.Student.ToString()).RoleId;
+
+            _context.UserMaster.Add(userMaster);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetUserMaster", new { id = userMaster.UserId }, userMaster);
+        }
+
 
         // DELETE: api/UserMasters/5
         [HttpDelete("{id}")]

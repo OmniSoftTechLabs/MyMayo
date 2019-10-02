@@ -6,6 +6,7 @@ export class userMaster {
   roleId: number;
   firstName: string;
   lastName: string;
+  email: string;
   image: [];
   qualification: string;
   rating: number;
