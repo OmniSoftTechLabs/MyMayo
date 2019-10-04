@@ -6,4 +6,10 @@ var userMaster = /** @class */ (function () {
     return userMaster;
 }());
 exports.userMaster = userMaster;
+var createPwd = /** @class */ (function () {
+    function createPwd() {
+    }
+    return createPwd;
+}());
+exports.createPwd = createPwd;
 //# sourceMappingURL=userModel.js.map

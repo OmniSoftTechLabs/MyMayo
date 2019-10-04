@@ -13,3 +13,8 @@ export class userMaster {
 
   //RoleMaster Role { get; set; }
 }
+
+export class createPwd {
+  userId: string;
+  password: string;
+}

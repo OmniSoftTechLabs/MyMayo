@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { userMaster } from '../models/userModel';
+import { userMaster, createPwd } from '../models/userModel';
 import { roleModel } from '../models/roleModel';
 
 @Injectable({
@@ -36,6 +36,10 @@ export class UserRoleService {
     return this.http.post<userMaster>(this.baseUrl + 'api/UserMasters/CreateStudentUser', userModel);
   }
 
+  getUserbyId(guid: string) {
+    return this.http.get<userMaster>(this.baseUrl + 'api/UserMasters/' + guid);
+  }
+
   getAllUser() {
     return this.http.get<userMaster[]>(this.baseUrl + 'api/UserMasters/GetUserMaster');
   }
@@ -44,6 +48,9 @@ export class UserRoleService {
     return this.http.get<roleModel[]>(this.baseUrl + 'api/RoleMasters/GetRoleMaster');
   }
 
+  createNewPwd(createPwd: createPwd) {
+    return this.http.put<string>(this.baseUrl + 'api/UserMasters/CreateNewPassword', createPwd);
+  }
   //  .subscribe(result => {
   //  this.userList = result;
   //}, error => console.error(error));

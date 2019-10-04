@@ -13,6 +13,7 @@ import { CourseListComponent } from './course-list/course-list.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { UserMasterComponent } from './user-master/user-master.component';
+import { CreatePwdComponent } from './create-pwd/create-pwd.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { UserMasterComponent } from './user-master/user-master.component';
     CourseDetailComponent,
     ContactUsComponent,
     UserMasterComponent,
+    CreatePwdComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -37,6 +39,7 @@ import { UserMasterComponent } from './user-master/user-master.component';
       { path: 'coursedetail', component: CourseDetailComponent },
       { path: 'contactus', component: ContactUsComponent },
       { path: 'userdetail', component: UserMasterComponent },
+      { path: 'createpwd/:userId', component: CreatePwdComponent },
 
       //{ path: 'counter', component: CounterComponent },
       //{ path: 'fetch-data', component: FetchDataComponent },

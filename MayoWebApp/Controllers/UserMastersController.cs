@@ -1,4 +1,5 @@
 ﻿using DAL.Models;
+using MayoWebApp.GenericClasses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -71,6 +72,40 @@ namespace MayoWebApp.Controllers
             return NoContent();
         }
 
+        // PUT: api/UserMasters/CreateNewPassword
+        [HttpPut("[action]")]
+        public async Task<IActionResult> CreateNewPassword(CreatePwd userPwd)
+        {
+            if (!UserMasterExists(userPwd.UserId))
+            {
+                return NotFound();
+            }
+
+            UserMaster objUser = _context.UserMaster.FirstOrDefault(p => p.UserId == userPwd.UserId);
+
+            objUser.Password = GenericMethods.GenerateSaltedHash(userPwd.Password);
+
+            _context.Entry(objUser).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UserMasterExists(userPwd.UserId))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok();
+        }
+
         // POST: api/UserMasters
         [HttpPost("[action]")]
         public async Task<ActionResult<UserMaster>> AddUserMaster(UserMaster userMaster)
@@ -80,8 +115,15 @@ namespace MayoWebApp.Controllers
                 return BadRequest(ModelState);
             }
 
+            if (_context.UserMaster.FirstOrDefault(p => p.UserName.ToLower() == userMaster.UserName.ToLower()) != null)
+                return Conflict("User Name already exists");
+
             _context.UserMaster.Add(userMaster);
             await _context.SaveChangesAsync();
+
+            List<string> ToEmails = new List<string>();
+            ToEmails.Add(userMaster.UserName);
+            GenericMethods.SendEmailNotification(ToEmails, "User Activation Link", "This is test from user master");
 
             return CreatedAtAction("GetUserMaster", new { id = userMaster.UserId }, userMaster);
         }
@@ -158,5 +200,11 @@ namespace MayoWebApp.Controllers
         {
             return _context.UserMaster.Any(e => e.UserId == id);
         }
+    }
+
+    public class CreatePwd
+    {
+        public Guid UserId { get; set; }
+        public string Password { get; set; }
     }
 }

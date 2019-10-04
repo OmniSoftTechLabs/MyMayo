@@ -8,5 +8,12 @@
             Teacher = 2,
             Administrator = 3
         }
+
+        public enum LogType
+        {
+            ErrorLog,
+            ActivityLog,
+            HistoryLog,
+        }
     }
 }

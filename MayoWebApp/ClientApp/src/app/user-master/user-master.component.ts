@@ -13,7 +13,10 @@ export class UserMasterComponent implements OnInit {
 
   roleList: roleModel[] = [];
   userModel: userMaster = new userMaster();
-
+  errorMsg: string = "";
+  IsError: boolean;
+  IsSucess: boolean;
+  formTitle: string = "Sign Up";
 
   constructor(private userRoleService: UserRoleService) {
   }
@@ -33,9 +36,14 @@ export class UserMasterComponent implements OnInit {
 
   onSaveUser() {
     this.userModel.userName = this.userModel.email;
-    this.userRoleService.addUserMaster(this.userModel).subscribe(result => {
-      this.userModel = result;
-    }, error => console.error(error));
+    this.userRoleService.addUserMaster(this.userModel).subscribe(
+      result => { this.userModel = result, this.IsSucess = true, setTimeout(() => { this.closeAlert(); }, 5000) },
+      error => { this.IsError = true, this.errorMsg = error.error, setTimeout(() => { this.closeAlert(); }, 5000) });
 
+  }
+
+  closeAlert() {
+    this.IsSucess = false;
+    this.IsError = false;
   }
 }
