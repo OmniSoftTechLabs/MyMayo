@@ -80,8 +80,18 @@ namespace MayoWebApp.Controllers
             {
                 return NotFound();
             }
-
             UserMaster objUser = _context.UserMaster.FirstOrDefault(p => p.UserId == userPwd.UserId);
+
+            #region Verify Password
+            //string hastr = objUser.Password.Split('|')[0];
+            //string salt = objUser.Password.Split('|')[1];
+
+            //if (GenericMethods.VerifyPassword(userPwd.Password, hastr, salt))
+            //{
+            //    return Ok();
+            //}
+            #endregion
+
 
             objUser.Password = GenericMethods.GenerateSaltedHash(userPwd.Password);
 
@@ -90,8 +100,10 @@ namespace MayoWebApp.Controllers
             try
             {
                 await _context.SaveChangesAsync();
+                GenericMethods.Log(LogType.ActivityLog.ToString(), "New Password Created for user: " + objUser.UserName);
+
             }
-            catch (DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException ex)
             {
                 if (!UserMasterExists(userPwd.UserId))
                 {
@@ -99,7 +111,7 @@ namespace MayoWebApp.Controllers
                 }
                 else
                 {
-                    throw;
+                    GenericMethods.Log(LogType.ErrorLog.ToString(), ex.ToString());
                 }
             }
 
